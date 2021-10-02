@@ -26,14 +26,14 @@ class Solution(object):
             # leaf node, check if the target sum found
             return sub_target==0
         
-        found_left  = self.hasPathSum(root.left , sub_target) if root.left  else False
-        found_right = self.hasPathSum(root.right, sub_target) if root.right else False
+        return ( self.hasPathSum(root.left , sub_target)
+                                or
+                 self.hasPathSum(root.right, sub_target) )
             
-        return found_left or found_right
- 
 
 if __name__=="__main__":
     l = [5,4,8,11,'null',13,4,7,2,'null','null','null',1]
     root = make_binaryTree(TreeNode,l)
     S = Solution()
     path_found = S.hasPathSum(root,22)
+    print(path_found)
